@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.6105100000000008"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="66"/>
+	<parameter name="nroFactura" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\MIGUEL A. RODRIGUEZ\\Desktop\\jesus_R_GYM\\src\\reportes\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="cantidadLetra" class="java.lang.String"/>
+	<parameter name="serieInicio" class="java.lang.String"/>
+	<parameter name="serieFinal" class="java.lang.String"/>
+	<parameter name="tipoFactura" class="java.lang.String"/>
+	<parameter name="fechaVenci" class="java.lang.String"/>
+	<parameter name="formaPago" class="java.lang.String"/>
+	<parameter name="img_banner" class="java.lang.String"/>
+	<parameter name="img_piePagina" class="java.lang.String"/>
+	<parameter name="img_barraDescripcion" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     factura.`nofactura` AS factura_nofactura,
+     factura.`usuario` AS factura_usuario,
+     factura.`idatletas` AS factura_idatletas,
+     factura.`fecha` AS factura_fecha,
+     factura.`noserie` AS factura_noserie,
+     factura.`nombre_usuario` AS factura_nombre_usuario,
+     factura.`totalPago` AS factura_totalPago,
+     factura.`estatus` AS factura_estatus,
+     atletas.`idatletas` AS atletas_idatletas,
+     atletas.`cedula` AS atletas_cedula,
+     atletas.`nombres` AS atletas_nombres,
+     organizacion.`rif` AS organizacion_rif,
+     organizacion.`nombre` AS organizacion_nombre,
+     organizacion.`razon_social` AS organizacion_razon_social,
+     organizacion.`correo` AS organizacion_correo,
+     organizacion.`telefono` AS organizacion_telefono,
+     organizacion.`direccion` AS organizacion_direccion,
+     organizacion.`inicio_actividad` AS organizacion_inicio_actividad
+FROM
+     `atletas` atletas INNER JOIN `factura` factura ON atletas.`idatletas` = factura.`idatletas`,
+     `organizacion` organizacion
+WHERE
+     factura.`nofactura` = $P{nroFactura}]]>
+	</queryString>
+	<field name="factura_nofactura" class="java.lang.Integer"/>
+	<field name="factura_usuario" class="java.lang.Integer"/>
+	<field name="factura_idatletas" class="java.lang.Integer"/>
+	<field name="factura_fecha" class="java.sql.Date"/>
+	<field name="factura_noserie" class="java.lang.Integer"/>
+	<field name="factura_nombre_usuario" class="java.lang.String"/>
+	<field name="factura_totalPago" class="java.lang.Double"/>
+	<field name="factura_estatus" class="java.lang.Integer"/>
+	<field name="atletas_idatletas" class="java.lang.Integer"/>
+	<field name="atletas_cedula" class="java.lang.Integer"/>
+	<field name="atletas_nombres" class="java.lang.String"/>
+	<field name="organizacion_rif" class="java.lang.String"/>
+	<field name="organizacion_nombre" class="java.lang.String"/>
+	<field name="organizacion_razon_social" class="java.lang.String"/>
+	<field name="organizacion_correo" class="java.lang.String"/>
+	<field name="organizacion_telefono" class="java.lang.String"/>
+	<field name="organizacion_direccion" class="java.lang.String"/>
+	<field name="organizacion_inicio_actividad" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="219" splitType="Stretch">
+			<image>
+				<reportElement x="116" y="0" width="456" height="219"/>
+				<imageExpression><![CDATA[$P{img_banner}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="1" y="20" width="22" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[RIF:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="494" y="184" width="58" height="13" forecolor="#000033"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{factura_fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="494" y="168" width="58" height="13"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{factura_nofactura}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="455" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{organizacion_nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="23" y="20" width="436" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{organizacion_rif}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="61" y="40" width="398" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{organizacion_telefono}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="39" y="60" width="420" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{organizacion_correo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="83" y="80" width="376" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{organizacion_razon_social}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="100" width="459" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{organizacion_direccion}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="146" width="44" height="13" forecolor="#3399FF"/>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CLIENTE]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="48" y="160" width="264" height="16"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{atletas_cedula}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="58" y="176" width="254" height="16"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{atletas_nombres}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="40" width="60" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[TELEFONO:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="60" width="39" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[E-MAIL:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="80" width="81" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[RAZON SOCIAL:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="160" width="39" height="16"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cedula:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="10" y="176" width="48" height="16"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombres:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="491" y="-20" width="81" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{tipoFactura}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="439" y="197" width="49" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[VENCE:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="494" y="199" width="58" height="13"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{fechaVenci}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="192" width="100" height="16"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[FORMA DE PAGO:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="110" y="192" width="202" height="16"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{formaPago}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="172" splitType="Stretch">
+			<image>
+				<reportElement x="-15" y="1" width="593" height="81"/>
+				<imageExpression><![CDATA[$P{img_barraDescripcion}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="-441" y="30" width="29" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[RIF:]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="1" y="82" width="200" height="86"/>
+				<subreportParameter name="sonletras">
+					<subreportParameterExpression><![CDATA[$P{cantidadLetra}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="nofactura">
+					<subreportParameterExpression><![CDATA[$P{nroFactura}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "detalle_factura.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="101" splitType="Stretch">
+			<staticText>
+				<reportElement x="232" y="82" width="71" height="15"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Impreso desde el:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="304" y="82" width="52" height="15"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{serieInicio}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="362" y="82" width="10" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[al]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="377" y="82" width="77" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{serieFinal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="81" y="82" width="145" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{organizacion_correo}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="0" y="0" width="572" height="83"/>
+				<imageExpression><![CDATA[$P{img_piePagina}]]></imageExpression>
+			</image>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="10" splitType="Stretch"/>
+	</summary>
+</jasperReport>

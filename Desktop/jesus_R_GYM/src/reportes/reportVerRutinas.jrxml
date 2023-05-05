@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.7715610000000013"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="cedula_atleta" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\MIGUEL A. RODRIGUEZ\\Desktop\\jesus_R_GYM\\src\\reportes\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="imagen_ruta" class="java.lang.String"/>
+	<parameter name="fecha1" class="java.lang.String"/>
+	<parameter name="fecha2" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     rutinas.`idatletas`,
+     rutinas.`cedula`,
+     rutinas.`nombres`,
+     rutinas.`entrenador`,
+     rutinas.`dia`,
+     rutinas.`rutinas`,
+     rutinas.`modalidad`,
+     rutinas.`ejercicio`,
+     rutinas.`serie`,
+     rutinas.`repeticiones`,
+     rutinas.`descanso`,
+     rutinas.`fecha_rutina` AS rutinas_fecha_rutina
+FROM
+     `rutinas` rutinas
+WHERE
+     cedula = $P{cedula_atleta}
+ AND fecha_rutina BETWEEN $P{fecha1} AND $P{fecha2}
+ORDER BY
+     fecha ASC]]>
+	</queryString>
+	<field name="idatletas" class="java.lang.Integer"/>
+	<field name="cedula" class="java.lang.Integer"/>
+	<field name="nombres" class="java.lang.String"/>
+	<field name="entrenador" class="java.lang.String"/>
+	<field name="dia" class="java.lang.String"/>
+	<field name="rutinas" class="java.lang.String"/>
+	<field name="modalidad" class="java.lang.String"/>
+	<field name="ejercicio" class="java.lang.String"/>
+	<field name="serie" class="java.lang.String"/>
+	<field name="repeticiones" class="java.lang.String"/>
+	<field name="descanso" class="java.lang.String"/>
+	<field name="rutinas_fecha_rutina" class="java.lang.String"/>
+	<group name="cabezal">
+		<groupExpression><![CDATA[$F{idatletas}]]></groupExpression>
+		<groupHeader>
+			<band height="111">
+				<rectangle>
+					<reportElement x="-21" y="24" width="613" height="82" backcolor="#F2F2F2"/>
+					<graphicElement>
+						<pen lineWidth="0.0"/>
+					</graphicElement>
+				</rectangle>
+				<staticText>
+					<reportElement mode="Opaque" x="-21" y="3" width="613" height="20" forecolor="#000066" backcolor="#CCCCFF"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[PROGRAMACION SEMANAL]]></text>
+				</staticText>
+				<line>
+					<reportElement x="-20" y="1" width="613" height="1" backcolor="#009999"/>
+					<graphicElement>
+						<pen lineWidth="2.0" lineColor="#006666"/>
+					</graphicElement>
+				</line>
+				<staticText>
+					<reportElement x="7" y="48" width="48" height="15" forecolor="#000066"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="10"/>
+					</textElement>
+					<text><![CDATA[CEDULA :]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="55" y="48" width="62" height="15" forecolor="#000066"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{cedula}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="7" y="68" width="57" height="15" forecolor="#000066"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="10"/>
+					</textElement>
+					<text><![CDATA[NOMBRES:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="64" y="68" width="133" height="15" forecolor="#000066"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{nombres}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="246" y="68" width="80" height="15" forecolor="#000066"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="10"/>
+					</textElement>
+					<text><![CDATA[ENTRENADOR:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="326" y="68" width="139" height="15" forecolor="#000066"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{entrenador}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="-19" y="107" width="613" height="1" backcolor="#006666"/>
+					<graphicElement>
+						<pen lineWidth="2.0" lineColor="#006666"/>
+					</graphicElement>
+				</line>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="8"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="85" splitType="Stretch">
+			<subreport>
+				<reportElement x="2" y="0" width="103" height="49"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "report_EncabezadoOrganizacion2.jasper"]]></subreportExpression>
+			</subreport>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement x="471" y="-16" width="90" height="14" forecolor="#000066"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="471" y="0" width="90" height="85"/>
+				<imageExpression><![CDATA["C:\\Users\\MIGUEL A. RODRIGUEZ\\Desktop\\jesus_R_GYM\\src\\reportes\\logo1.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<detail>
+		<band height="149" splitType="Stretch">
+			<textField>
+				<reportElement x="7" y="31" width="65" height="20" forecolor="#CC0000"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{rutinas}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="378" y="31" width="71" height="15" forecolor="#FF3333"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MODALIDAD:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="2" y="112" width="261" height="20" forecolor="#6E6E6E"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ejercicio}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="2" y="90" width="570" height="20" backcolor="#F2F2F2"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="93" y="92" width="61" height="15" forecolor="#0099FF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[EJERCICIO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="274" y="112" width="71" height="20" forecolor="#6E6E6E"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{serie}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="281" y="92" width="45" height="15" forecolor="#0099FF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[SERIES]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="356" y="112" width="84" height="20" forecolor="#6E6E6E"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{repeticiones}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="357" y="92" width="84" height="15" forecolor="#0099FF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[REPETICIONES]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="450" y="112" width="100" height="20" forecolor="#6E6E6E"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{descanso}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="466" y="92" width="62" height="15" forecolor="#0099FF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[DESCANSO]]></text>
+			</staticText>
+			<line>
+				<reportElement x="2" y="83" width="559" height="1"/>
+				<graphicElement>
+					<pen lineColor="#CCCCCC"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="7" y="148" width="559" height="1"/>
+				<graphicElement>
+					<pen lineColor="#0099CC"/>
+				</graphicElement>
+			</line>
+			<textField pattern="dd-MMM-yy">
+				<reportElement x="246" y="57" width="73" height="20" forecolor="#000066"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{rutinas_fecha_rutina}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="246" y="31" width="73" height="20" forecolor="#660000"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dia}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="450" y="31" width="106" height="15" forecolor="#660000" backcolor="#F7F2E0"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{modalidad}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="14">
+			<textField>
+				<reportElement x="449" y="4" width="80" height="10" forecolor="#000066"/>
+				<textElement textAlignment="Right">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="529" y="4" width="40" height="10" forecolor="#000066"/>
+				<textElement>
+					<font size="6" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="55" y="0" width="100" height="12" forecolor="#000066"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RUTINAS]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>

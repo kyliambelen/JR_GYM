@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.9487171000000019"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="94"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="imgmiLogo" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     vista_totalfactura_diaria.`fecha` AS vista_totalfactura_diaria_fecha,
+     vista_totalfactura_diaria.`mes` AS vista_totalfactura_diaria_mes,
+     vista_totalfactura_diaria.`total_factura` AS vista_totalfactura_diaria_total_factura,
+     organizacion.`rif` AS organizacion_rif,
+     organizacion.`nombre` AS organizacion_nombre,
+     organizacion.`razon_social` AS organizacion_razon_social,
+     organizacion.`correo` AS organizacion_correo,
+     organizacion.`telefono` AS organizacion_telefono,
+     organizacion.`direccion` AS organizacion_direccion
+FROM
+     `vista_totalfactura_diaria` vista_totalfactura_diaria,
+     `organizacion` organizacion]]>
+	</queryString>
+	<field name="vista_totalfactura_diaria_fecha" class="java.lang.String"/>
+	<field name="vista_totalfactura_diaria_mes" class="java.lang.String"/>
+	<field name="vista_totalfactura_diaria_total_factura" class="java.lang.Double"/>
+	<field name="organizacion_rif" class="java.lang.String"/>
+	<field name="organizacion_nombre" class="java.lang.String"/>
+	<field name="organizacion_razon_social" class="java.lang.String"/>
+	<field name="organizacion_correo" class="java.lang.String"/>
+	<field name="organizacion_telefono" class="java.lang.String"/>
+	<field name="organizacion_direccion" class="java.lang.String"/>
+	<variable name="totalMes" class="java.lang.Double" resetType="Group" resetGroup="vista_totalfactura_diaria_mes" calculation="Sum">
+		<variableExpression><![CDATA[$F{vista_totalfactura_diaria_total_factura}]]></variableExpression>
+	</variable>
+	<group name="vista_totalfactura_diaria_mes">
+		<groupExpression><![CDATA[$F{vista_totalfactura_diaria_mes}]]></groupExpression>
+		<groupHeader>
+			<band height="37">
+				<frame>
+					<reportElement mode="Opaque" x="0" y="7" width="555" height="24" forecolor="#B89F7D" backcolor="#BDBDBD"/>
+					<textField isStretchWithOverflow="true">
+						<reportElement style="SubTitle" isPrintRepeatedValues="false" x="75" y="0" width="110" height="24" forecolor="#0066CC"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{vista_totalfactura_diaria_mes}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement style="Column header" x="356" y="4" width="91" height="18" forecolor="#0066CC"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font size="12" isBold="true"/>
+						</textElement>
+						<text><![CDATA[FACTURACION]]></text>
+					</staticText>
+				</frame>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="30">
+				<textField evaluationTime="Band" pattern="#,##0.00;(#,##0.00)">
+					<reportElement mode="Transparent" x="359" y="8" width="65" height="18" forecolor="#330000"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="14" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{totalMes}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="75" y="4" width="370" height="1"/>
+				</line>
+				<staticText>
+					<reportElement x="319" y="8" width="40" height="18" forecolor="#666666"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="11" isBold="true" isItalic="true" isUnderline="false" isStrikeThrough="false"/>
+						<paragraph lineSpacing="Fixed" lineSpacingSize="2.0"/>
+					</textElement>
+					<text><![CDATA[TOTAL:]]></text>
+				</staticText>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="130" splitType="Stretch">
+			<frame>
+				<reportElement mode="Transparent" x="-25" y="-19" width="599" height="103" backcolor="#000099"/>
+				<textField>
+					<reportElement x="23" y="3" width="393" height="20" forecolor="#0066CC"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true" isItalic="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{organizacion_nombre}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="64" y="43" width="352" height="20" forecolor="#0066CC"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true" isItalic="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{organizacion_correo}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="43" y="23" width="373" height="20" forecolor="#0066CC"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true" isItalic="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{organizacion_rif}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="83" y="63" width="333" height="20" forecolor="#0066CC"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true" isItalic="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{organizacion_telefono}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="23" y="83" width="393" height="20" forecolor="#0066CC"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true" isItalic="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{organizacion_direccion}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="23" y="23" width="21" height="20" forecolor="#0066CC"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[RIF:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="23" y="43" width="41" height="20" forecolor="#0066CC"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[E-MAIL:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="23" y="63" width="60" height="20" forecolor="#0066CC"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[TELEFONO:]]></text>
+				</staticText>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement x="442" y="1" width="130" height="12" forecolor="#006699"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="7" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement x="424" y="4" width="110" height="80"/>
+				<imageExpression><![CDATA[$P{imgmiLogo}]]></imageExpression>
+			</image>
+			<frame>
+				<reportElement mode="Opaque" x="-25" y="97" width="599" height="25" forecolor="#000000" backcolor="#000099"/>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement x="361" y="4" width="192" height="20" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="26" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" x="0" y="3" width="553" height="18" forecolor="#666666"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Rockwell Extra Bold" size="12" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[INFORME FACTURACION DIARIA MENSUAL]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="555" height="18"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="78" y="0" width="99" height="18" forecolor="#666666"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="14" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{vista_totalfactura_diaria_fecha}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="#,##0.00;(#,##0.00)">
+					<reportElement style="Detail" positionType="Float" x="357" y="0" width="66" height="18" forecolor="#666666"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="14" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{vista_totalfactura_diaria_total_factura}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="6" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="1" width="555" height="24" forecolor="#D0B48E" backcolor="#BDBDBD"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="513" y="0" width="40" height="20" forecolor="#0066CC"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="433" y="0" width="80" height="20" forecolor="#0066CC"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="39" y="6" width="76" height="12" forecolor="#333333"/>
+					<textElement verticalAlignment="Middle">
+						<font size="6" isBold="true"/>
+					</textElement>
+					<text><![CDATA[FACTURACION MENSUAL]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

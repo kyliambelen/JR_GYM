@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.8181818181818181"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="cedula" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\MIGUEL A. RODRIGUEZ\\Desktop\\jesus_R_GYM\\src\\reportes\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ruta_img" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     vista_listar_rutinas.`idatletas` AS vista_listar_rutinas_idatletas,
+     vista_listar_rutinas.`cedula` AS vista_listar_rutinas_cedula,
+     vista_listar_rutinas.`nombres` AS vista_listar_rutinas_nombres,
+     vista_listar_rutinas.`entrenador` AS vista_listar_rutinas_entrenador,
+     vista_listar_rutinas.`dia` AS vista_listar_rutinas_dia,
+     vista_listar_rutinas.`fecha` AS vista_listar_rutinas_fecha,
+     vista_listar_rutinas.`rutinas` AS vista_listar_rutinas_rutinas,
+     vista_listar_rutinas.`modalidad` AS vista_listar_rutinas_modalidad,
+     vista_listar_rutinas.`ejercicio` AS vista_listar_rutinas_ejercicio,
+     vista_listar_rutinas.`serie` AS vista_listar_rutinas_serie,
+     vista_listar_rutinas.`repeticiones` AS vista_listar_rutinas_repeticiones,
+     vista_listar_rutinas.`descanso` AS vista_listar_rutinas_descanso
+FROM
+     `vista_listar_rutinas` vista_listar_rutinas
+WHERE
+     vista_listar_rutinas.`cedula` = $P{cedula}]]>
+	</queryString>
+	<field name="vista_listar_rutinas_idatletas" class="java.lang.Integer"/>
+	<field name="vista_listar_rutinas_cedula" class="java.lang.Integer"/>
+	<field name="vista_listar_rutinas_nombres" class="java.lang.String"/>
+	<field name="vista_listar_rutinas_entrenador" class="java.lang.String"/>
+	<field name="vista_listar_rutinas_dia" class="java.lang.String"/>
+	<field name="vista_listar_rutinas_fecha" class="java.util.Date"/>
+	<field name="vista_listar_rutinas_rutinas" class="java.lang.String"/>
+	<field name="vista_listar_rutinas_modalidad" class="java.lang.String"/>
+	<field name="vista_listar_rutinas_ejercicio" class="java.lang.String"/>
+	<field name="vista_listar_rutinas_serie" class="java.lang.String"/>
+	<field name="vista_listar_rutinas_repeticiones" class="java.lang.String"/>
+	<field name="vista_listar_rutinas_descanso" class="java.lang.String"/>
+	<group name="fechaRutina" isReprintHeaderOnEachPage="true">
+		<groupExpression><![CDATA[$F{vista_listar_rutinas_idatletas}]]></groupExpression>
+		<groupHeader>
+			<band height="106">
+				<line>
+					<reportElement x="-21" y="1" width="613" height="1" backcolor="#009999"/>
+					<graphicElement>
+						<pen lineWidth="2.0" lineColor="#006666"/>
+					</graphicElement>
+				</line>
+				<line>
+					<reportElement x="-21" y="105" width="613" height="1" backcolor="#006666"/>
+					<graphicElement>
+						<pen lineWidth="2.0" lineColor="#006666"/>
+					</graphicElement>
+				</line>
+				<rectangle>
+					<reportElement x="-21" y="23" width="613" height="82" backcolor="#F2F2F2"/>
+					<graphicElement>
+						<pen lineWidth="0.0"/>
+					</graphicElement>
+				</rectangle>
+				<staticText>
+					<reportElement mode="Opaque" x="-21" y="3" width="613" height="20" forecolor="#000066" backcolor="#CCCCFF"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[ RUTINAS PROGRAMADAS]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Transparent" x="3" y="45" width="48" height="15" forecolor="#000066" backcolor="#009999"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[CEDULA :]]></text>
+				</staticText>
+				<textField>
+					<reportElement mode="Transparent" x="52" y="45" width="62" height="15" forecolor="#000066" backcolor="#CCCCFF"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{vista_listar_rutinas_cedula}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement mode="Transparent" x="3" y="67" width="57" height="15" forecolor="#000066" backcolor="#009999"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[NOMBRES:]]></text>
+				</staticText>
+				<textField>
+					<reportElement mode="Transparent" x="61" y="67" width="164" height="15" forecolor="#000066" backcolor="#CCCCFF"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{vista_listar_rutinas_nombres}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="241" y="67" width="80" height="15" forecolor="#000066"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[ENTRENADOR:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="321" y="67" width="139" height="15" forecolor="#000066"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{vista_listar_rutinas_entrenador}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="50"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="74" splitType="Stretch">
+			<subreport>
+				<reportElement x="2" y="0" width="129" height="50"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "report_EncabezadoOrganizacion2.jasper"]]></subreportExpression>
+			</subreport>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement x="476" y="-16" width="90" height="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="476" y="0" width="90" height="74"/>
+				<imageExpression><![CDATA["C:\\Users\\MIGUEL A. RODRIGUEZ\\Desktop\\jesus_R_GYM\\src\\reportes\\logo1.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<detail>
+		<band height="149" splitType="Stretch">
+			<textField>
+				<reportElement mode="Transparent" x="2" y="13" width="63" height="16" forecolor="#CC0000" backcolor="#009999"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vista_listar_rutinas_rutinas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="465" y="13" width="106" height="15" forecolor="#660000" backcolor="#F7F2E0"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vista_listar_rutinas_modalidad}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="394" y="13" width="71" height="15" forecolor="#FF3333"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MODALIDAD:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="2" y="112" width="261" height="20" forecolor="#6E6E6E"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vista_listar_rutinas_ejercicio}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="2" y="81" width="570" height="20" backcolor="#F2F2F2"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="102" y="83" width="61" height="15" forecolor="#0099FF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[EJERCICIO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="274" y="112" width="71" height="20" forecolor="#6E6E6E"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vista_listar_rutinas_serie}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="281" y="83" width="45" height="15" forecolor="#0099FF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[SERIES]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="356" y="112" width="84" height="20" forecolor="#6E6E6E"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vista_listar_rutinas_repeticiones}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="357" y="83" width="84" height="15" forecolor="#0099FF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[REPETICIONES]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="450" y="112" width="100" height="20" forecolor="#6E6E6E"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vista_listar_rutinas_descanso}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="466" y="83" width="62" height="15" forecolor="#0099FF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[DESCANSO]]></text>
+			</staticText>
+			<line>
+				<reportElement x="2" y="73" width="567" height="1"/>
+				<graphicElement>
+					<pen lineColor="#CCCCCC"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="7" y="148" width="559" height="1"/>
+				<graphicElement>
+					<pen lineColor="#0099CC"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="241" y="28" width="68" height="15" forecolor="#000099"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vista_listar_rutinas_dia}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd-MMM-yy">
+				<reportElement x="241" y="45" width="68" height="15" forecolor="#660033"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vista_listar_rutinas_fecha}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="15">
+			<textField>
+				<reportElement x="448" y="5" width="80" height="10" forecolor="#000066"/>
+				<textElement textAlignment="Right">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="528" y="5" width="40" height="10" forecolor="#000066"/>
+				<textElement>
+					<font size="6" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="44" y="0" width="87" height="12" forecolor="#000066"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[RUTINAS PROGRAMADAS]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>

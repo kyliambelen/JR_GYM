@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="612" pageHeight="685" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.771561000000001"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     vista_total_factura_anual.`venta` AS vista_total_factura_anual_venta,
+     vista_total_factura_anual.`descuento` AS vista_total_factura_anual_descuento,
+     vista_total_factura_anual.`total` AS vista_total_factura_anual_total
+FROM
+     `vista_total_factura_anual` vista_total_factura_anual]]>
+	</queryString>
+	<field name="vista_total_factura_anual_venta" class="java.lang.Double"/>
+	<field name="vista_total_factura_anual_descuento" class="java.lang.Double"/>
+	<field name="vista_total_factura_anual_total" class="java.lang.Double"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="80" splitType="Stretch">
+			<rectangle>
+				<reportElement x="26" y="26" width="130" height="20" isRemoveLineWhenBlank="true" backcolor="#E6E6E6"/>
+				<graphicElement>
+					<pen lineStyle="Solid" lineColor="#5987FF"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="26" y="3" width="130" height="20" isRemoveLineWhenBlank="true" backcolor="#E6E6E6"/>
+				<graphicElement>
+					<pen lineColor="#5987FF"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement mode="Transparent" x="31" y="4" width="120" height="18" isPrintWhenDetailOverflows="true" forecolor="#3399FF" backcolor="#F0F0F0"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FACTURACION]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="158" y="49" width="125" height="20" backcolor="#3366FF"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="158" y="26" width="125" height="20" backcolor="#3366FF"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="31" y="28" width="120" height="17" forecolor="#3399FF"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DESCUENTOS]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="26" y="49" width="130" height="20" isRemoveLineWhenBlank="true" backcolor="#E6E6E6"/>
+				<graphicElement>
+					<pen lineStyle="Solid" lineColor="#5987FF"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="31" y="48" width="120" height="19" forecolor="#3399FF" backcolor="#038002"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOTAL FACTURACION]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="158" y="3" width="125" height="20" isPrintInFirstWholeBand="true" backcolor="#3366FF"/>
+			</rectangle>
+			<textField pattern="#,##0.00">
+				<reportElement x="165" y="52" width="100" height="16" forecolor="#FFFFFF"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vista_total_factura_anual_total}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="165" y="28" width="100" height="16" forecolor="#FFFFFF"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vista_total_factura_anual_descuento}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="165" y="5" width="100" height="16" forecolor="#FFFFFF"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vista_total_factura_anual_venta}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

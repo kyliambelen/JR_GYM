@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="29"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\MIGUEL A. RODRIGUEZ\\Desktop\\jesus_R_GYM\\src\\reportes\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fechaFactura" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="imagen_ruta" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     vista_facturacion.`factura` AS vista_facturacion_factura,
+     vista_facturacion.`fecha` AS vista_facturacion_fecha,
+     vista_facturacion.`cliente` AS vista_facturacion_cliente,
+     vista_facturacion.`telefono` AS vista_facturacion_telefono,
+     vista_facturacion.`cobrador` AS vista_facturacion_cobrador,
+     vista_facturacion.`importe` AS vista_facturacion_importe,
+     vista_facturacion.`descuento` AS vista_facturacion_descuento,
+     vista_facturacion.`total` AS vista_facturacion_total
+FROM
+     `vista_facturacion` vista_facturacion
+WHERE
+       vista_facturacion.`fecha`=$P{fechaFactura}
+ORDER BY  vista_facturacion.`fecha`]]>
+	</queryString>
+	<field name="vista_facturacion_factura" class="java.lang.Integer"/>
+	<field name="vista_facturacion_fecha" class="java.lang.String"/>
+	<field name="vista_facturacion_cliente" class="java.lang.String"/>
+	<field name="vista_facturacion_telefono" class="java.lang.String"/>
+	<field name="vista_facturacion_cobrador" class="java.lang.String"/>
+	<field name="vista_facturacion_importe" class="java.lang.Double"/>
+	<field name="vista_facturacion_descuento" class="java.lang.Double"/>
+	<field name="vista_facturacion_total" class="java.lang.Double"/>
+	<variable name="totalDiario" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{vista_facturacion_total}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="81" splitType="Stretch">
+			<image>
+				<reportElement x="462" y="0" width="100" height="81"/>
+				<imageExpression><![CDATA[$P{imagen_ruta}]]></imageExpression>
+			</image>
+			<subreport>
+				<reportElement x="0" y="0" width="103" height="40"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "report_EncabezadoOrganizacion2.jasper"]]></subreportExpression>
+			</subreport>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="452" y="-19" width="119" height="12" forecolor="#006699"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="471" y="0" width="22" height="15" forecolor="#FFFFFF" backcolor="#009999"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[DIA:]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="494" y="0" width="62" height="15" forecolor="#000099" backcolor="#0099CC"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vista_facturacion_fecha}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="191" y="1" width="180" height="20" forecolor="#0066CC"/>
+				<textElement>
+					<font fontName="Rockwell Extra Bold" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FACTURACION DIARIA]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="45" splitType="Stretch">
+			<rectangle>
+				<reportElement x="9" y="14" width="547" height="18" backcolor="#006699"/>
+				<graphicElement>
+					<pen lineColor="#F0F0F0"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="361" y="17" width="74" height="12" forecolor="#FFFFFF"/>
+				<textElement>
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FACTURACION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="107" y="17" width="43" height="12" forecolor="#FFFFFF"/>
+				<textElement>
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CLIENTE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="203" y="17" width="52" height="12" forecolor="#FFFFFF"/>
+				<textElement>
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TELEFONO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="520" y="17" width="36" height="12" forecolor="#FFFFFF"/>
+				<textElement>
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOTAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="37" y="17" width="22" height="12" forecolor="#FFFFFF"/>
+				<textElement>
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nro.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="442" y="17" width="60" height="12" forecolor="#FFFFFF"/>
+				<textElement>
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DESCUENTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="274" y="17" width="54" height="12" isRemoveLineWhenBlank="true" forecolor="#FFFFFF"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[COBRADOR]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<textField pattern="#,##0.00">
+				<reportElement x="498" y="2" width="54" height="13" isRemoveLineWhenBlank="true" forecolor="#333333"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vista_facturacion_total}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="371" y="2" width="54" height="13" forecolor="#333333"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vista_facturacion_importe}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="195" y="3" width="66" height="13" forecolor="#333333"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vista_facturacion_telefono}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="26" y="3" width="34" height="13" forecolor="#333333"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vista_facturacion_factura}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="444" y="2" width="54" height="13" forecolor="#333333"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vista_facturacion_descuento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="71" y="3" width="120" height="13" forecolor="#333333"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vista_facturacion_cliente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="269" y="3" width="100" height="13" forecolor="#333333"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vista_facturacion_cobrador}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="26" y="17" width="526" height="1"/>
+				<graphicElement>
+					<pen lineColor="#E6E6E6"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="14" splitType="Stretch">
+			<textField evaluationTime="Report">
+				<reportElement x="532" y="0" width="40" height="10"/>
+				<textElement>
+					<font size="7" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="452" y="0" width="80" height="10"/>
+				<textElement textAlignment="Right">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="24" y="2" width="67" height="12" forecolor="#333333"/>
+				<textElement verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FACTURACION DIARIA]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="50">
+			<staticText>
+				<reportElement mode="Opaque" x="421" y="15" width="76" height="15" forecolor="#FFFFFF" backcolor="#009999"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Rockwell Extra Bold" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOTAL DIA:]]></text>
+			</staticText>
+			<textField pattern="#,##0.00;(#,##0.00)">
+				<reportElement mode="Opaque" x="498" y="15" width="58" height="15" forecolor="#000099" backcolor="#0099CC"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Rockwell Extra Bold" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{totalDiario}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

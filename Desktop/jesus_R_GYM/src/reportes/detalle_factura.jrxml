@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="detalle_venta" pageWidth="612" pageHeight="500" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="612" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.9487171000000014"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="sonletras" class="java.lang.String"/>
+	<parameter name="nofactura" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     vista_detalle_facturado.`nofactura` AS vista_detalle_facturado_nofactura,
+     vista_detalle_facturado.`cod` AS vista_detalle_facturado_cod,
+     vista_detalle_facturado.`usuario` AS vista_detalle_facturado_usuario,
+     vista_detalle_facturado.`cliente` AS vista_detalle_facturado_cliente,
+     vista_detalle_facturado.`fecha` AS vista_detalle_facturado_fecha,
+     vista_detalle_facturado.`descripcion` AS vista_detalle_facturado_descripcion,
+     vista_detalle_facturado.`iva` AS vista_detalle_facturado_iva,
+     vista_detalle_facturado.`cantidad` AS vista_detalle_facturado_cantidad,
+     vista_detalle_facturado.`monto` AS vista_detalle_facturado_monto,
+     vista_detalle_facturado.`subTotal` AS vista_detalle_facturado_subTotal,
+     vista_detalle_facturado.`totalIva` AS vista_detalle_facturado_totalIva,
+     vista_detalle_facturado.`descuento` AS vista_detalle_facturado_descuento,
+     vista_detalle_facturado.`total` AS vista_detalle_facturado_total
+FROM
+     `vista_detalle_facturado` vista_detalle_facturado
+WHERE
+     vista_detalle_facturado.`nofactura` = $P{nofactura}]]>
+	</queryString>
+	<field name="vista_detalle_facturado_nofactura" class="java.lang.Integer"/>
+	<field name="vista_detalle_facturado_cod" class="java.lang.String"/>
+	<field name="vista_detalle_facturado_usuario" class="java.lang.String"/>
+	<field name="vista_detalle_facturado_cliente" class="java.lang.String"/>
+	<field name="vista_detalle_facturado_fecha" class="java.lang.String"/>
+	<field name="vista_detalle_facturado_descripcion" class="java.lang.String"/>
+	<field name="vista_detalle_facturado_iva" class="java.lang.Double"/>
+	<field name="vista_detalle_facturado_cantidad" class="java.lang.Integer"/>
+	<field name="vista_detalle_facturado_monto" class="java.lang.Double"/>
+	<field name="vista_detalle_facturado_subTotal" class="java.lang.Double"/>
+	<field name="vista_detalle_facturado_totalIva" class="java.lang.Double"/>
+	<field name="vista_detalle_facturado_descuento" class="java.lang.Double"/>
+	<field name="vista_detalle_facturado_total" class="java.lang.Double"/>
+	<variable name="totalDescuento" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{vista_detalle_facturado_descuento}]]></variableExpression>
+	</variable>
+	<variable name="totalIva" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{vista_detalle_facturado_totalIva}]]></variableExpression>
+	</variable>
+	<variable name="subTotal" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{vista_detalle_facturado_subTotal}]]></variableExpression>
+	</variable>
+	<variable name="importe" class="java.lang.Double">
+		<variableExpression><![CDATA[$V{subTotal}]]></variableExpression>
+	</variable>
+	<variable name="total" class="java.lang.Double">
+		<variableExpression><![CDATA[$V{subTotal}-$V{totalDescuento}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="26" splitType="Stretch">
+			<rectangle>
+				<reportElement x="5" y="4" width="546" height="22" backcolor="#F2F3F2"/>
+				<graphicElement>
+					<pen lineWidth="0.0" lineStyle="Double" lineColor="#F2F3F2"/>
+				</graphicElement>
+			</rectangle>
+			<textField>
+				<reportElement x="70" y="5" width="158" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vista_detalle_facturado_descripcion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="272" y="5" width="25" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vista_detalle_facturado_cantidad}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;(#,##0.00)">
+				<reportElement x="326" y="5" width="40" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vista_detalle_facturado_monto}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;(#,##0.00)">
+				<reportElement x="477" y="5" width="52" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vista_detalle_facturado_subTotal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="404" y="5" width="39" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vista_detalle_facturado_descuento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="7" y="5" width="40" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vista_detalle_facturado_cod}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="185">
+			<staticText>
+				<reportElement x="5" y="12" width="19" height="14"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Son:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="24" y="12" width="357" height="14"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{sonletras}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="392" y="61" width="92" height="14" isPrintInFirstWholeBand="true" forecolor="#000000"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Importe:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="392" y="14" width="92" height="15" isPrintInFirstWholeBand="true" forecolor="#000000"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sub-Total:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="392" y="57" width="144" height="1"/>
+				<graphicElement>
+					<pen lineColor="#848484"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="392" y="80" width="92" height="15" isPrintInFirstWholeBand="true" forecolor="#000000"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Descuento:]]></text>
+			</staticText>
+			<textField pattern="#,##0.00;(#,##0.00)">
+				<reportElement x="484" y="79" width="52" height="15"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{totalDescuento}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="392" y="35" width="92" height="15" isPrintInFirstWholeBand="true" forecolor="#000000"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Importe Iva:]]></text>
+			</staticText>
+			<textField pattern="#,##0.00;(#,##0.00)">
+				<reportElement x="484" y="35" width="52" height="15"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{totalIva}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="392" y="106" width="92" height="18" isRemoveLineWhenBlank="true" backcolor="#018FFD"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="392" y="107" width="67" height="15" isPrintInFirstWholeBand="true" forecolor="#FFFFFF" backcolor="#012BFD"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total:]]></text>
+			</staticText>
+			<textField pattern="#,##0.00;(#,##0.00)">
+				<reportElement x="484" y="14" width="52" height="15"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{subTotal}-$V{totalIva}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;(#,##0.00)">
+				<reportElement x="484" y="58" width="52" height="17"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{importe}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="485" y="106" width="51" height="18" backcolor="#012152"/>
+			</rectangle>
+			<textField pattern="#,##0.00;(#,##0.00)">
+				<reportElement x="485" y="108" width="51" height="15" forecolor="#FFFFFF"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{total}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="391" y="101" width="144" height="1"/>
+				<graphicElement>
+					<pen lineColor="#848484"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="468" y="107" width="16" height="15" isPrintInFirstWholeBand="true" forecolor="#FFFFFF"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Bs.]]></text>
+			</staticText>
+			<line>
+				<reportElement x="5" y="5" width="546" height="1"/>
+				<graphicElement>
+					<pen lineWidth="2.0" lineColor="#F0F0F0"/>
+				</graphicElement>
+			</line>
+		</band>
+	</summary>
+</jasperReport>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="784" leftMargin="8" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="2.357947691000002"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     organizacion.`rif` AS organizacion_rif,
+     organizacion.`nombre` AS organizacion_nombre,
+     organizacion.`razon_social` AS organizacion_razon_social,
+     organizacion.`correo` AS organizacion_correo,
+     organizacion.`telefono` AS organizacion_telefono,
+     organizacion.`direccion` AS organizacion_direccion,
+     organizacion.`inicio_actividad` AS organizacion_inicio_actividad
+FROM
+     `organizacion` organizacion]]>
+	</queryString>
+	<field name="organizacion_rif" class="java.lang.String"/>
+	<field name="organizacion_nombre" class="java.lang.String"/>
+	<field name="organizacion_razon_social" class="java.lang.String"/>
+	<field name="organizacion_correo" class="java.lang.String"/>
+	<field name="organizacion_telefono" class="java.lang.String"/>
+	<field name="organizacion_direccion" class="java.lang.String"/>
+	<field name="organizacion_inicio_actividad" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="151" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="390" height="20" forecolor="#000066"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{organizacion_nombre}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="20" width="20" height="20" forecolor="#000066"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RIF:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="19" y="20" width="371" height="20" forecolor="#000066"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{organizacion_rif}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="40" width="59" height="20" forecolor="#000066"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TELEFONO:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="60" width="40" height="20" forecolor="#000066"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI" isBold="true"/>
+				</textElement>
+				<text><![CDATA[E-MAIL:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="80" width="60" height="20" forecolor="#000066"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DIRECCION:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="59" y="40" width="331" height="20" forecolor="#000066"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{organizacion_telefono}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="39" y="60" width="351" height="20" forecolor="#000066"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{organizacion_correo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="59" y="80" width="331" height="20" forecolor="#000066"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{organizacion_direccion}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="3" y="106" width="387" height="1"/>
+				<graphicElement>
+					<pen lineColor="#0000CC"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="3" y="117" width="296" height="1"/>
+				<graphicElement>
+					<pen lineColor="#3366FF"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="3" y="130" width="210" height="1"/>
+				<graphicElement>
+					<pen lineColor="#CC0000"/>
+				</graphicElement>
+			</line>
+		</band>
+	</title>
+</jasperReport>

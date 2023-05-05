@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.771561000000001"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\MIGUEL A. RODRIGUEZ\\Desktop\\jesus_R_GYM\\src\\reportes\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="cedula" class="java.lang.String"/>
+	<parameter name="rutaLogo" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     asistencia.`cedula` AS asistencia_cedula,
+     asistencia.`nombres` AS asistencia_nombres,
+     asistencia.`fecha` AS asistencia_fecha,
+     asistencia.`tiempo` AS asistencia_tiempo,
+     asistencia.`hora_entrada` AS asistencia_hora_entrada,
+     asistencia.`hora_salida` AS asistencia_hora_salida,
+     asistencia.`cancelacion` AS asistencia_cancelacion,
+     asistencia.`observaciones` AS asistencia_observaciones
+FROM
+     `asistencia` asistencia
+WHERE
+     asistencia.`cedula` = $P{cedula}]]>
+	</queryString>
+	<field name="asistencia_cedula" class="java.lang.String"/>
+	<field name="asistencia_nombres" class="java.lang.String"/>
+	<field name="asistencia_fecha" class="java.sql.Date"/>
+	<field name="asistencia_tiempo" class="java.lang.String"/>
+	<field name="asistencia_hora_entrada" class="java.lang.String"/>
+	<field name="asistencia_hora_salida" class="java.lang.String"/>
+	<field name="asistencia_cancelacion" class="java.lang.String"/>
+	<field name="asistencia_observaciones" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="88" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="443" y="-14" width="127" height="12" forecolor="#000066"/>
+				<textElement textAlignment="Center">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement x="441" y="0" width="129" height="88"/>
+				<imageExpression><![CDATA["C:\\Users\\MIGUEL A. RODRIGUEZ\\Desktop\\jesus_R_GYM\\src\\reportes\\logo1.png"]]></imageExpression>
+			</image>
+			<subreport>
+				<reportElement x="0" y="2" width="74" height="38"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "report_EncabezadoOrganizacion2.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="166" y="0" width="234" height="18" forecolor="#006699"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Rockwell Extra Bold" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ASISTENCIAS DIARIAS]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="35" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="5" width="572" height="20" backcolor="#666666"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement mode="Opaque" x="4" y="9" width="46" height="12" forecolor="#FFFFFF" backcolor="#009999"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CEDULA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="77" y="9" width="46" height="12" forecolor="#FFFFFF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="169" y="9" width="46" height="12" forecolor="#FFFFFF" backcolor="#009999"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FECHA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="226" y="9" width="46" height="12" forecolor="#FFFFFF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TIEMPO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="280" y="9" width="46" height="12" forecolor="#FFFFFF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ENTRADA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="335" y="9" width="46" height="12" forecolor="#FFFFFF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SALIDA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="394" y="9" width="64" height="12" forecolor="#FFFFFF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CANCELACION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="466" y="9" width="65" height="12" forecolor="#FFFFFF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[OBSERVACION]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement mode="Opaque" x="3" y="0" width="45" height="15" forecolor="#000066" backcolor="#EFF2FB"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{asistencia_cedula}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="58" y="0" width="97" height="15"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{asistencia_nombres}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement mode="Opaque" x="166" y="2" width="53" height="15" forecolor="#000066" backcolor="#CCCCFF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{asistencia_fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="230" y="2" width="40" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{asistencia_tiempo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="290" y="2" width="27" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{asistencia_hora_entrada}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="338" y="2" width="38" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{asistencia_hora_salida}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="407" y="2" width="41" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{asistencia_cancelacion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="470" y="2" width="100" height="15"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{asistencia_observaciones}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="19">
+			<textField>
+				<reportElement mode="Opaque" x="484" y="3" width="39" height="12" forecolor="#000066" backcolor="#EFF2FB"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="523" y="3" width="40" height="12" forecolor="#000066" backcolor="#EFF2FB"/>
+				<textElement verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="29" y="0" width="68" height="15" forecolor="#000066"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte Asistencias]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+</jasperReport>

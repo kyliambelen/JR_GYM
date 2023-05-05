@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.6105100000000008"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="cedula" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\MIGUEL A. RODRIGUEZ\\Desktop\\jesus_R_GYM\\src\\reportes\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="logo_JR3" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     vista_listar_mensualidad.`nroreferencia` AS vista_listar_mensualidad_nroreferencia,
+     vista_listar_mensualidad.`fecha` AS vista_listar_mensualidad_fecha,
+     vista_listar_mensualidad.`cedula` AS vista_listar_mensualidad_cedula,
+     vista_listar_mensualidad.`nombres` AS vista_listar_mensualidad_nombres,
+     vista_listar_mensualidad.`fecha_inscripcion` AS vista_listar_mensualidad_fecha_inscripcion,
+     vista_listar_mensualidad.`fecha_final` AS vista_listar_mensualidad_fecha_final,
+     vista_listar_mensualidad.`monto_inscripcion` AS vista_listar_mensualidad_monto_inscripcion,
+     vista_listar_mensualidad.`monto_mensualidad` AS vista_listar_mensualidad_monto_mensualidad,
+     vista_listar_mensualidad.`monto_abono` AS vista_listar_mensualidad_monto_abono,
+     vista_listar_mensualidad.`monto_debe` AS vista_listar_mensualidad_monto_debe,
+     vista_listar_mensualidad.`forma_depago` AS vista_listar_mensualidad_forma_depago,
+     vista_listar_mensualidad.`nombre_entrenador` AS vista_listar_mensualidad_nombre_entrenador,
+     vista_listar_mensualidad.`monto_entrenador` AS vista_listar_mensualidad_monto_entrenador,
+     vista_listar_mensualidad.`fecha_inicio` AS vista_listar_mensualidad_fecha_inicio,
+     vista_listar_mensualidad.`fecha_finaliza` AS vista_listar_mensualidad_fecha_finaliza,
+     vista_listar_mensualidad.`entrenamientos` AS vista_listar_mensualidad_entrenamientos,
+     vista_listar_mensualidad.`turno` AS vista_listar_mensualidad_turno,
+     vista_listar_mensualidad.`hora_entrada` AS vista_listar_mensualidad_hora_entrada,
+     vista_listar_mensualidad.`hora_salida` AS vista_listar_mensualidad_hora_salida,
+     vista_listar_mensualidad.`rutaFoto` AS vista_listar_mensualidad_rutaFoto,
+     vista_listar_mensualidad.`foto` AS vista_listar_mensualidad_foto
+FROM
+     `vista_listar_mensualidad` vista_listar_mensualidad
+
+WHERE
+      vista_listar_mensualidad.`cedula` = $P{cedula}]]>
+	</queryString>
+	<field name="vista_listar_mensualidad_nroreferencia" class="java.lang.String"/>
+	<field name="vista_listar_mensualidad_fecha" class="java.sql.Date"/>
+	<field name="vista_listar_mensualidad_cedula" class="java.lang.Integer"/>
+	<field name="vista_listar_mensualidad_nombres" class="java.lang.String"/>
+	<field name="vista_listar_mensualidad_fecha_inscripcion" class="java.lang.String"/>
+	<field name="vista_listar_mensualidad_fecha_final" class="java.lang.String"/>
+	<field name="vista_listar_mensualidad_monto_inscripcion" class="java.lang.Double"/>
+	<field name="vista_listar_mensualidad_monto_mensualidad" class="java.lang.Double"/>
+	<field name="vista_listar_mensualidad_monto_abono" class="java.lang.Double"/>
+	<field name="vista_listar_mensualidad_monto_debe" class="java.lang.Double"/>
+	<field name="vista_listar_mensualidad_forma_depago" class="java.lang.String"/>
+	<field name="vista_listar_mensualidad_nombre_entrenador" class="java.lang.String"/>
+	<field name="vista_listar_mensualidad_monto_entrenador" class="java.lang.Double"/>
+	<field name="vista_listar_mensualidad_fecha_inicio" class="java.lang.String"/>
+	<field name="vista_listar_mensualidad_fecha_finaliza" class="java.lang.String"/>
+	<field name="vista_listar_mensualidad_entrenamientos" class="java.lang.String"/>
+	<field name="vista_listar_mensualidad_turno" class="java.lang.String"/>
+	<field name="vista_listar_mensualidad_hora_entrada" class="java.lang.String"/>
+	<field name="vista_listar_mensualidad_hora_salida" class="java.lang.String"/>
+	<field name="vista_listar_mensualidad_rutaFoto" class="java.lang.String"/>
+	<field name="vista_listar_mensualidad_foto" class="java.io.InputStream"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="62" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="109" height="38"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "report_EncabezadoOrganizacion2.jasper"]]></subreportExpression>
+			</subreport>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement x="461" y="-16" width="90" height="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement x="475" y="0" width="84" height="62"/>
+				<imageExpression><![CDATA["C:\\Users\\MIGUEL A. RODRIGUEZ\\Desktop\\jesus_R_GYM\\src\\reportes\\logo1.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="27">
+			<staticText>
+				<reportElement mode="Opaque" x="-19" y="9" width="613" height="17" forecolor="#000066" backcolor="#CCCCFF"/>
+				<textElement textAlignment="Center">
+					<font fontName="Rockwell Extra Bold" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ PAGO MENSUAL]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="250" splitType="Stretch">
+			<textField>
+				<reportElement mode="Opaque" x="73" y="39" width="66" height="15" forecolor="#CC0000" backcolor="#CCCCFF"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vista_listar_mensualidad_nroreferencia}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="17" y="39" width="57" height="15" forecolor="#003399"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nro. REF.:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="74" y="56" width="65" height="15" forecolor="#CC0000"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vista_listar_mensualidad_cedula}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="74" y="71" width="136" height="15" forecolor="#CC0000"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vista_listar_mensualidad_nombres}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="20" y="121" width="70" height="15" forecolor="#666666"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vista_listar_mensualidad_fecha_inscripcion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="121" width="50" height="15" forecolor="#666666"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vista_listar_mensualidad_monto_inscripcion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="162" y="121" width="57" height="15" forecolor="#666666"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vista_listar_mensualidad_monto_mensualidad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="231" y="121" width="57" height="15" forecolor="#666666"/>
+				<textElement textAlignment="Center">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vista_listar_mensualidad_monto_abono}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="298" y="121" width="57" height="15" forecolor="#666666"/>
+				<textElement textAlignment="Center">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vista_listar_mensualidad_monto_debe}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="369" y="121" width="70" height="15" forecolor="#666666"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vista_listar_mensualidad_fecha_final}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="20" y="98" width="545" height="15" backcolor="#EFF5FB"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="381" y="98" width="41" height="15" forecolor="#000066"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FINALIZA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="56" width="57" height="15" forecolor="#000066"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CEDULA:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="71" width="57" height="15" forecolor="#000066"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRES:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="28" y="98" width="55" height="15" forecolor="#000066"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[INSCRIPCION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="108" y="98" width="35" height="15" forecolor="#000066"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MONTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="161" y="98" width="60" height="15" forecolor="#000066"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MENSUALIDAD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="243" y="98" width="34" height="15" forecolor="#000066"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ABONO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="307" y="98" width="34" height="15" forecolor="#000066"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DEBE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="17" y="20" width="133" height="17" forecolor="#0099CC" backcolor="#0B3861"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Rockwell Extra Bold" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ATLETA]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="448" y="121" width="117" height="15" forecolor="#666666"/>
+				<textElement textAlignment="Center">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vista_listar_mensualidad_forma_depago}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="468" y="98" width="71" height="15" forecolor="#000066"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FORMA DE PAGO]]></text>
+			</staticText>
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement x="154" y="20" width="47" height="48"/>
+				<imageExpression><![CDATA[$F{vista_listar_mensualidad_foto}]]></imageExpression>
+			</image>
+			<line>
+				<reportElement x="20" y="249" width="545" height="1"/>
+				<graphicElement>
+					<pen lineColor="#CCCCCC"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="209" y="152" width="150" height="16" forecolor="#000066" backcolor="#CCCCFF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Rockwell Extra Bold" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ENTRENADOR]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="89" y="179" width="100" height="15" forecolor="#CC0000"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vista_listar_mensualidad_nombre_entrenador}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="28" y="179" width="62" height="15" forecolor="#000066"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ENTRENADOR:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="491" y="223" width="60" height="15" forecolor="#333333"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vista_listar_mensualidad_monto_entrenador}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="20" y="223" width="89" height="15" forecolor="#333333"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vista_listar_mensualidad_entrenamientos}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="20" y="201" width="545" height="15" backcolor="#EFF5FB"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="30" y="201" width="74" height="15" forecolor="#6666FF"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ENTRENAMIENTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="504" y="201" width="35" height="15" forecolor="#6666FF"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MONTO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="112" y="223" width="80" height="15" forecolor="#333333"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vista_listar_mensualidad_turno}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="135" y="201" width="41" height="15" forecolor="#6666FF"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TURNO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="195" y="223" width="82" height="15" forecolor="#333333"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vista_listar_mensualidad_fecha_inicio}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="231" y="201" width="26" height="15" forecolor="#6666FF"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[INICIO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="280" y="223" width="82" height="15" forecolor="#333333"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vista_listar_mensualidad_fecha_finaliza}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="304" y="201" width="48" height="15" forecolor="#6666FF"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FINALIZA]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="365" y="223" width="60" height="15" forecolor="#333333"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vista_listar_mensualidad_hora_entrada}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="370" y="201" width="48" height="15" forecolor="#6666FF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ENTRADA]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="428" y="223" width="60" height="15" forecolor="#333333"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vista_listar_mensualidad_hora_salida}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="435" y="201" width="40" height="15" forecolor="#6666FF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SALIDA]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="38">
+			<rectangle>
+				<reportElement x="-19" y="16" width="613" height="17" backcolor="#EFEFFB"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<textField evaluationTime="Report">
+				<reportElement x="519" y="21" width="40" height="10" forecolor="#000066"/>
+				<textElement>
+					<font size="6" isBold="true" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="439" y="21" width="80" height="10" forecolor="#000066"/>
+				<textElement textAlignment="Right">
+					<font size="6" isBold="true" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="36" y="21" width="54" height="10" forecolor="#000066"/>
+				<textElement>
+					<font fontName="Arial" size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PAGO MENSUAL]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

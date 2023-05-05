@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.9487171000000014"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="144"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\MIGUEL A. RODRIGUEZ\\Desktop\\jesus_R_GYM\\src\\reportes\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="dir_img" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[CALL `facturaMensual`();]]>
+	</queryString>
+	<field name="enero" class="java.math.BigDecimal"/>
+	<field name="febrero" class="java.math.BigDecimal"/>
+	<field name="marzo" class="java.math.BigDecimal"/>
+	<field name="abril" class="java.math.BigDecimal"/>
+	<field name="mayo" class="java.math.BigDecimal"/>
+	<field name="junio" class="java.math.BigDecimal"/>
+	<field name="julio" class="java.math.BigDecimal"/>
+	<field name="agosto" class="java.math.BigDecimal"/>
+	<field name="septiembre" class="java.math.BigDecimal"/>
+	<field name="octubre" class="java.math.BigDecimal"/>
+	<field name="noviembre" class="java.math.BigDecimal"/>
+	<field name="diciembre" class="java.math.BigDecimal"/>
+	<field name="anio" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="73" splitType="Stretch">
+			<subreport>
+				<reportElement x="10" y="0" width="69" height="40"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "report_EncabezadoOrganizacion2.jasper"]]></subreportExpression>
+			</subreport>
+			<image>
+				<reportElement x="474" y="0" width="98" height="73"/>
+				<imageExpression><![CDATA[$P{dir_img}]]></imageExpression>
+			</image>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement x="474" y="-19" width="71" height="12"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="6" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="22" splitType="Stretch">
+			<rectangle>
+				<reportElement x="10" y="0" width="539" height="20" backcolor="#0099CC"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="177" y="1" width="198" height="19" forecolor="#FFFFFF"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ TOTAL FACTURACION POR MES]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement mode="Opaque" x="487" y="3" width="41" height="12" forecolor="#FFFFFF" backcolor="#0099CC"/>
+				<textElement>
+					<font size="8" isBold="true" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{anio}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="458" y="3" width="29" height="12" forecolor="#FFFFFF" backcolor="#009999"/>
+				<textElement>
+					<font size="8" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[AÑO:]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="196" splitType="Stretch">
+			<rectangle>
+				<reportElement mode="Opaque" x="32" y="5" width="78" height="15" forecolor="#FFFFFF" backcolor="#0099CC"/>
+				<graphicElement>
+					<pen lineColor="#000066"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="54" y="5" width="38" height="13" forecolor="#FFFFFF"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ENERO]]></text>
+			</staticText>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="31" y="31" width="80" height="15" forecolor="#000066"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{enero}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement mode="Opaque" x="115" y="5" width="78" height="15" forecolor="#FFFFFF" backcolor="#0099CC"/>
+				<graphicElement>
+					<pen lineColor="#000066"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="130" y="5" width="55" height="13" forecolor="#FFFFFF"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[FEBRERO]]></text>
+			</staticText>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" x="115" y="31" width="78" height="15" forecolor="#000066"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{febrero}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement mode="Opaque" x="197" y="5" width="78" height="15" forecolor="#FFFFFF" backcolor="#0099CC"/>
+				<graphicElement>
+					<pen lineColor="#000066"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="218" y="5" width="39" height="15" forecolor="#FFFFFF"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[MARZO]]></text>
+			</staticText>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="196" y="31" width="80" height="15" forecolor="#000066"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{marzo}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement mode="Opaque" x="280" y="5" width="78" height="15" forecolor="#FFFFFF" backcolor="#0099CC"/>
+				<graphicElement>
+					<pen lineColor="#000066"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="303" y="5" width="37" height="15" isPrintInFirstWholeBand="true" forecolor="#FFFFFF"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ABRIL]]></text>
+			</staticText>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="279" y="31" width="80" height="15" isPrintInFirstWholeBand="true" forecolor="#000066"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{abril}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement mode="Opaque" x="364" y="5" width="78" height="15" forecolor="#FFFFFF" backcolor="#0099CC"/>
+				<graphicElement>
+					<pen lineColor="#000066"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="388" y="5" width="33" height="15" forecolor="#FFFFFF"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[MAYO]]></text>
+			</staticText>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="363" y="31" width="80" height="15" forecolor="#000066"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mayo}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement mode="Opaque" x="449" y="5" width="78" height="15" forecolor="#FFFFFF" backcolor="#0099CC"/>
+				<graphicElement>
+					<pen lineColor="#000066"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="474" y="5" width="31" height="15" isPrintWhenDetailOverflows="true" forecolor="#FFFFFF"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[JUNIO]]></text>
+			</staticText>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="448" y="31" width="81" height="15" isPrintWhenDetailOverflows="true" forecolor="#000066"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{junio}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="32" y="59" width="78" height="15" isRemoveLineWhenBlank="true" isPrintInFirstWholeBand="true" forecolor="#FFFFFF" backcolor="#0099CC"/>
+				<graphicElement>
+					<pen lineColor="#000066"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="56" y="61" width="36" height="15" isPrintInFirstWholeBand="true" forecolor="#FFFFFF"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[JULIO]]></text>
+			</staticText>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="33" y="84" width="77" height="15" isPrintInFirstWholeBand="true" forecolor="#000066"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{julio}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="115" y="59" width="78" height="15" isRemoveLineWhenBlank="true" isPrintInFirstWholeBand="true" forecolor="#FFFFFF" backcolor="#0099CC"/>
+				<graphicElement>
+					<pen lineColor="#000066"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="132" y="61" width="47" height="15" forecolor="#FFFFFF"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[AGOSTO]]></text>
+			</staticText>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="115" y="84" width="77" height="15" forecolor="#000066"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{agosto}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="197" y="59" width="78" height="15" forecolor="#FFFFFF" backcolor="#0099CC"/>
+				<graphicElement>
+					<pen lineColor="#000066"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="203" y="61" width="68" height="15" isRemoveLineWhenBlank="true" forecolor="#FFFFFF"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[SEPTIEMBRE]]></text>
+			</staticText>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="197" y="84" width="79" height="15" isRemoveLineWhenBlank="true" forecolor="#000066"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{septiembre}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="280" y="59" width="78" height="15" forecolor="#FFFFFF" backcolor="#0099CC"/>
+				<graphicElement>
+					<pen lineColor="#000066"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="294" y="61" width="50" height="15" isPrintInFirstWholeBand="true" forecolor="#FFFFFF"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[OCTUBRE]]></text>
+			</staticText>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="279" y="84" width="80" height="15" isPrintInFirstWholeBand="true" forecolor="#000066"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{octubre}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="365" y="59" width="78" height="15" forecolor="#FFFFFF" backcolor="#0099CC"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineColor="#000066"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="373" y="61" width="62" height="15" isPrintInFirstWholeBand="true" forecolor="#FFFFFF"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOVIEMBRE]]></text>
+			</staticText>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="363" y="84" width="81" height="15" isPrintInFirstWholeBand="true" forecolor="#000066"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{noviembre}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="449" y="59" width="78" height="15" forecolor="#FFFFFF" backcolor="#0099CC"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineColor="#000066"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="459" y="61" width="57" height="15" forecolor="#FFFFFF"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[DICIEMBRE]]></text>
+			</staticText>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="448" y="84" width="80" height="15" forecolor="#000066"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{diciembre}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="530" y="3" width="1" height="108"/>
+				<graphicElement>
+					<pen lineColor="#000066"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="29" y="111" width="502" height="1" isPrintInFirstWholeBand="true"/>
+				<graphicElement>
+					<pen lineColor="#000066"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="446" y="2" width="1" height="109"/>
+				<graphicElement>
+					<pen lineColor="#000066"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="194" y="2" width="1" height="109"/>
+				<graphicElement>
+					<pen lineColor="#000066"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="112" y="2" width="1" height="109"/>
+				<graphicElement>
+					<pen lineColor="#000066"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="360" y="3" width="1" height="108"/>
+				<graphicElement>
+					<pen lineColor="#000066"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="277" y="2" width="1" height="109"/>
+				<graphicElement>
+					<pen lineColor="#000066"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="29" y="3" width="1" height="108"/>
+				<graphicElement>
+					<pen lineColor="#000066"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="29" y="2" width="502" height="1" isPrintInFirstWholeBand="true"/>
+				<graphicElement>
+					<pen lineColor="#000066"/>
+				</graphicElement>
+			</line>
+			<subreport>
+				<reportElement x="226" y="131" width="120" height="36"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "reportTotal_factura_anual.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="12" splitType="Stretch">
+			<textField>
+				<reportElement x="461" y="-2" width="45" height="13"/>
+				<textElement textAlignment="Right">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="506" y="-2" width="40" height="13"/>
+				<textElement>
+					<font size="7" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="53" y="0" width="77" height="12" forecolor="#333333"/>
+				<textElement verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FACTURACION MENSUAL]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>
